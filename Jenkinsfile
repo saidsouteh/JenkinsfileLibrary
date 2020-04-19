@@ -1,6 +1,7 @@
 node("master"){
-       stage ('SCM Checkout') 
-
+       stage ('SCM Checkout') {
+       checkout scm
+       }
         stage ('MOLECULE DEPENDENCY') {
         sh 'export PATH=$PATH:/usr/local/bin ; ls roles/ | xargs -L 1 bash -c \'cd "roles/$0" && molecule dependency\''   
           }
