@@ -1,7 +1,5 @@
 node("master"){
-       stage ('SCM Checkout') { 
-         git branch: '${BRANCH}', url: ' https://github.com/saidsouteh/${COLLECTION}.git'
-                       }
+       stage ('SCM Checkout') 
 
         stage ('MOLECULE DEPENDENCY') {
         sh 'export PATH=$PATH:/usr/local/bin ; ls roles/ | xargs -L 1 bash -c \'cd "roles/$0" && molecule dependency\''   
